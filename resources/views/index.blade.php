@@ -34,6 +34,7 @@
 @section('content')
 <div >
 <form action="/todo/create" class="form" method="POST">
+  @csrf
   <input type="text" class="create">
   <input type="submit" value="追加" class="add">
 </form>
