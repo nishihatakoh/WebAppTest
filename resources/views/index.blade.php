@@ -26,8 +26,38 @@
     color:white;
     transition:0.7s;
   }
+  .update{
+    color:orange;
+    background-color:white;
+    border:2px solid orange;
+    text-decoration:none;
+    border-radius:5px;
+    padding:5px 15px;
+    cursor: pointer;
+  }
+  .update:hover{
+    background:orange;
+    color:white;
+    transition:0.7s;
+  }
+  .delete{
+    color:#00FFFF;
+    background-color:white;
+    border:2px solid #00FFFF;
+    text-decoration:none;
+    border-radius:5px;
+    padding:5px 15px;
+    cursor: pointer;
+  }
+  .delete:hover{
+    background:#00FFFF;
+    color:white;
+    transition:0.7s;
+  }
   table{
     width:100%;
+    text-align:center;
+    padding:20px 0;
   }
 </style>
 
@@ -35,7 +65,7 @@
 <div >
 <form action="/todo/create" class="form" method="POST">
   @csrf
-  <input type="text" class="create">
+  <input type="text" class="create" name="content">
   <input type="submit" value="追加" class="add">
 </form>
 </div>
@@ -47,12 +77,14 @@
     <th>削除</th>
   </tr>
   @foreach($items as $item)
+  <form method="post">
   <tr>
     <td>{{$item->created_at}}</td>
-    <td>{{$item->content}}</td>
-    <td><a href="/todo/update">更新</a></td>
-    <td><a href="/todo/delete">削除</a></td>
+    <td><input type="text" value="{{$item->content}}"></td>
+    <td><input type="submit" action="/todo/update" class="update" value="更新"></td>
+    <td><input type="submit" action="/todo/delate" class="delete" value="削除"></td>
   </tr>
+  </form>
   @endforeach
 </table>
 @endsection

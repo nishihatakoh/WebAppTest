@@ -17,6 +17,15 @@ class ToDoController extends Controller
         $this->validate($request, Todo::$rules);
         $form = $request->all();
         Todo::create($form);
-        return view('index',['items' => $items]);
+        return redirect('/');
+    }
+
+    public function update(Request $request)
+    {
+        $this->validate($request, Todo::$rules);
+        $form = $request->all();
+        unset($form['_token']);
+        Todo::where('id', $request->id)->update($form);
+        return redirect('/');
     }
 }
