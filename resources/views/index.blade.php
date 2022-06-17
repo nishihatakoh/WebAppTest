@@ -77,14 +77,18 @@
     <th>削除</th>
   </tr>
   @foreach($items as $item)
-  <form method="post">
+  
   <tr>
     <td>{{$item->created_at}}</td>
-    <td><input type="text" value="{{$item->content}}"></td>
-    <td><input type="submit" action="/todo/update" class="update" value="更新"></td>
-    <td><input type="submit" action="/todo/delate" class="delete" value="削除"></td>
+    <form>
+      <td><input type="text" value="{{$item->content}}"></td>
+      <td><input type="submit" action="/todo/update" class="update" method="post" value="更新" ></td>
+    </form>
+    <form>
+      <td><input type="submit" action="/todo/delate" class="delete" method="post" value="削除"></td>
+  </form>  
   </tr>
-  </form>
+  
   @endforeach
 </table>
 @endsection
