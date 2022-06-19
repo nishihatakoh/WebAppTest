@@ -88,7 +88,7 @@
           <input type="submit"  class="update" value="更新">
         </td>
     </form>
-    <form action="/todo/delate" method="post">
+    <form action="/todo/delete" method="post">
       @csrf
       <td>
         <input type="hidden" name="id" value="{{$item->id}}">
