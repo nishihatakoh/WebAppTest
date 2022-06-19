@@ -80,12 +80,14 @@
   
   <tr>
     <td>{{$item->created_at}}</td>
-    <form>
-      <td><input type="text" value="{{$item->content}}"></td>
-      <td><input type="submit" action="/todo/update" class="update" method="post" value="更新" name="id" value="{{$item->id}}"></td>
+    <form method="post" name="id" value="{{$item->id}}" action="/todo/update">
+    @csrf
+    <td><input type="text" value="{{$item->content}}"></td>
+      <td><input type="submit"  class="update" value="更新"></td>
     </form>
-    <form>
-      <td><input type="submit" action="/todo/delate" class="delete" method="post" value="削除" value="{{$item->id}}"></td>
+    <form action="/todo/delate" method="post" value="{{$item->id}}">
+      @csrf
+      <td><input type="submit"  class="delete" method="post" value="削除" ></td>
   </form>  
   </tr>
   
