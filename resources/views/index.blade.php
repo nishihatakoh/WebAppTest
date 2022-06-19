@@ -82,10 +82,10 @@
     <td>{{$item->created_at}}</td>
     <form>
       <td><input type="text" value="{{$item->content}}"></td>
-      <td><input type="submit" action="/todo/update" class="update" method="post" value="更新" ></td>
+      <td><input type="submit" action="/todo/update" class="update" method="post" value="更新" name="id" value="{{$item->id}}"></td>
     </form>
     <form>
-      <td><input type="submit" action="/todo/delate" class="delete" method="post" value="削除"></td>
+      <td><input type="submit" action="/todo/delate" class="delete" method="post" value="削除" value="{{$item->id}}"></td>
   </form>  
   </tr>
   
