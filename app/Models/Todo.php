@@ -13,6 +13,6 @@ class Todo extends Model
 
     public static $rules = array(
         'created_at' => 'date|nullable',
-        'content' => 'required'
+        'content' => 'required|max:20'
     );
 }
